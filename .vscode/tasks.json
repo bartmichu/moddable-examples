@@ -1,0 +1,25 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Moddable SDK: Upload to ESP8266",
+      "type": "shell",
+      "command": "mcconfig -m -p esp",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Moddable SDK: Upload to ESP8266 (debug)",
+      "type": "shell",
+      "command": "mcconfig -d -m -p esp",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
