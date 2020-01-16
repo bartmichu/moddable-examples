@@ -1,5 +1,5 @@
 /*
- * ESP8266 / NodeMCU
+ * ESP8266 NodeMCU / Moddable One
  *
  * Control LED with a button.
  *

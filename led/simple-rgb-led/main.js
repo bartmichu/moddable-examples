@@ -1,5 +1,5 @@
 /*
- * ESP8266 / NodeMCU
+ * ESP8266 NodeMCU / Moddable One
  *
  * Cycle an RGB LED without using PWM.
  *
