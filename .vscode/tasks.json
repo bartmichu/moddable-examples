@@ -20,6 +20,23 @@
         "cwd": "${workspaceFolder}/${relativeFileDirname}"
       },
       "problemMatcher": []
+    },{
+      "label": "Moddable SDK: Upload to Moddable One",
+      "type": "shell",
+      "command": "mcconfig -m -p esp/moddable_one",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Moddable SDK: Upload to Moddable One (debug)",
+      "type": "shell",
+      "command": "mcconfig -d -m -p esp/moddable_one",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
     }
   ]
 }
