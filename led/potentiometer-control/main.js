@@ -1,5 +1,5 @@
 /*
- * ESP8266 / NodeMCU
+ * Tested on: ESP8266 / NodeMCU
  *
  * Control brightness of a LED with potentiometer.
  *

@@ -1,5 +1,5 @@
 /*
- * ESP8266 NodeMCU / Moddable One
+ * Tested on: ESP8266 NodeMCU / Moddable One
  *
  * Hold a button to toggle LED.
  *
