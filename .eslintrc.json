@@ -10,7 +10,8 @@
         "SharedArrayBuffer": "readonly",
         "System": "readonly",
         "trace": "readonly",
-        "debugger": "readonly"
+        "debugger": "readonly",
+        "screen": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018,
