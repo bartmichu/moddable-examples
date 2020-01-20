@@ -14,13 +14,13 @@ import Digital from 'builtin/digital';
 
 let timeoutId = null;
 
-function stopCountdown() {
+const stopCountdown = function stopCountdown() {
   try {
     System.clearTimeout(timeoutId);
   } catch (e) {
     // trace(e);
   }
-}
+};
 
 const led = new Digital({ pin: 2, mode: Digital.Output });
 
