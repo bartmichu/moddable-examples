@@ -20,8 +20,8 @@ let timeoutId = null;
 const stopTimeout = function stopTimeout() {
   try {
     System.clearTimeout(timeoutId);
-  } catch (e) {
-    // trace(e);
+  } catch (error) {
+    // trace(`This is probably normal: ${error}\n`);
   }
 };
 
