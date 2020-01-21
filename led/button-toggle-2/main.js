@@ -14,7 +14,7 @@ import Digital from 'builtin/digital';
 
 let timeoutId = null;
 
-const stopCountdown = function stopCountdown() {
+const stopTimeout = function stopTimeout() {
   try {
     System.clearTimeout(timeoutId);
   } catch (e) {
@@ -31,9 +31,9 @@ const button = new Digital({
   onReadable() {
     const reading = this.read();
     if (reading) {
-      stopCountdown();
+      stopTimeout();
     } else {
-      stopCountdown();
+      stopTimeout();
       timeoutId = System.setTimeout(() => {
         led.write(!led.read());
       }, 1000);

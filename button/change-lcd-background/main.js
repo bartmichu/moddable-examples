@@ -17,7 +17,7 @@ const yellow = poco.makeColor(255, 255, 0);
 const red = poco.makeColor(255, 0, 0);
 let timeoutId = null;
 
-const stopCountdown = function stopCountdown() {
+const stopTimeout = function stopTimeout() {
   try {
     System.clearTimeout(timeoutId);
   } catch (e) {
@@ -40,10 +40,10 @@ const button = new Digital({
   onReadable() {
     const reading = this.read();
     if (reading) {
-      stopCountdown();
+      stopTimeout();
       paintBackground(black);
     } else {
-      stopCountdown();
+      stopTimeout();
       paintBackground(yellow);
       timeoutId = System.setTimeout(() => {
         paintBackground(red);
