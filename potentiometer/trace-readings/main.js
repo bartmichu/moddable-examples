@@ -6,6 +6,7 @@
  * Notes:
  * - Uses TC53 IO class pattern.
  * - ESP8266 has only one analog input so the pin property is unused.
+ * - Run with xsbug.
  */
 
 import Analog from 'builtin/analog';
