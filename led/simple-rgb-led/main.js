@@ -6,19 +6,19 @@
  * Notes:
  * - Uses TC53 IO class pattern.
  * - RGB LED connected as follows:
- *     Red pin -> GPIO 14
+ *     Red pin -> GPIO 13
  *     Green pin -> GPIO 12
- *     Blue pin -> GPIO 13
+ *     Blue pin -> GPIO 14
  */
 
 import DigitalBank from 'builtin/digitalbank';
 
 const rgbLed = new DigitalBank({
-  pins: (1 << 14) | (1 << 12) | (1 << 13),
+  pins: (1 << 13) | (1 << 12) | (1 << 14),
   mode: DigitalBank.Output,
 });
 
-const pinMask = [16384, 4096, 8192];
+const pinMask = [8192, 4096, 16384];
 let index = 0;
 System.setInterval(() => {
   rgbLed.write(pinMask[index]);
