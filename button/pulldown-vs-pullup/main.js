@@ -4,7 +4,7 @@
  * Trace rising edge events on pull-up and pull-down buttons.
  *
  * Notes:
- * - Uses TC53 IO class pattern.
+ * - Uses ESP8266 implementation of TC53 IO class pattern.
  * - Software debouncing.
  * - Run with xsbug.
  * - Disable "BREAK -> On Exceptions" option in xsbug preferences.

@@ -4,7 +4,7 @@
  * Toggle LED with a button hold.
  *
  * Notes:
- * - Uses TC53 IO class pattern.
+ * - Uses ESP8266 implementation of TC53 IO class pattern.
  * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
  * - Built-in Flash button available via GPIO 0.
  * - Software debouncing.

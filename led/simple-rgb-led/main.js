@@ -4,7 +4,7 @@
  * Cycle an RGB LED without using PWM.
  *
  * Notes:
- * - Uses TC53 IO class pattern.
+ * - Uses ESP8266 implementation of TC53 IO class pattern.
  * - RGB LED connected as follows:
  *     Red pin -> GPIO 13
  *     Green pin -> GPIO 12
