@@ -50,8 +50,7 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
 
   onReadable() {
-    const reading = this.read();
-    if (reading) {
+    if (this.read()) {
       stopTimeouts();
     } else {
       stopTimeouts();
