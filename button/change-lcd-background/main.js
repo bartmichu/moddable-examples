@@ -4,7 +4,7 @@
  * Press or hold the button to change background color.
  *
  * Notes:
- * - Uses ESP8266 implementation of TC53 IO class pattern.
+ * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - Built-in Flash button available via GPIO 0.
  */
 

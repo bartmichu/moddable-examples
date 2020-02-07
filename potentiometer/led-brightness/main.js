@@ -4,7 +4,7 @@
  * Use potentiometer to control brightness of a LED.
  *
  * Notes:
- * - Uses ESP8266 implementation of TC53 IO class pattern.
+ * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
  * - ESP8266 has only one analog input so the pin property is unused.
  * - 10-bit resolution for ADC and PWM.

@@ -4,7 +4,7 @@
  * Trace potentiometer readings.
  *
  * Notes:
- * - Uses ESP8266 implementation of TC53 IO class pattern.
+ * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - ESP8266 has only one analog input so the pin property is unused.
  * - Run with xsbug.
  */
