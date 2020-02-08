@@ -8,6 +8,7 @@
  * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
  * - Built-in Flash button available via GPIO 0.
  * - Software debouncing.
+ * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'builtin/digital';

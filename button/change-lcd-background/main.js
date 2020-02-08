@@ -6,6 +6,7 @@
  * Notes:
  * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - Built-in Flash button available via GPIO 0.
+ * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'builtin/digital';
