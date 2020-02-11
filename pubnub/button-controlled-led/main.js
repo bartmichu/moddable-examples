@@ -1,11 +1,11 @@
 /*
- * Tested on: ESP8266 / NodeMCU
+ * Tested on: ESP8266 (NodeMCU, Moddable One)
  *
  * Toggle LED with a button over the Internet.
  *
  * Notes:
- * - Run with xsbug.
  * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ * - Uses pubnub module which doesn't use SecureSocket.
  */
 
 import { PubNub } from 'pubnub';

@@ -1,5 +1,5 @@
 /*
- * Tested on: Moddable One
+ * Tested on: ESP8266 (Moddable One)
  *
  * Press or hold the button to change background color.
  *

@@ -1,11 +1,12 @@
 /*
- * Tested on: ESP8266 / NodeMCU
+ * Tested on: ESP8266 (NodeMCU, Moddable One)
  *
  * Trace messages from subscribed channel.
  *
  * Notes:
  * - Run with xsbug.
  * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ * - Uses pubnub module which doesn't use SecureSocket.
  */
 
 import { PubNub } from 'pubnub';

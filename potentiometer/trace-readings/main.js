@@ -1,5 +1,5 @@
 /*
- * Tested on: ESP8266 / NodeMCU
+ * Tested on: ESP8266 (NodeMCU)
  *
  * Trace potentiometer readings.
  *

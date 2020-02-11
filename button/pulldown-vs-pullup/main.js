@@ -1,5 +1,5 @@
 /*
- * Tested on: ESP8266 NodeMCU / Moddable One
+ * Tested on: ESP8266 (NodeMCU, Moddable One)
  *
  * Trace rising edge events on pull-up and pull-down buttons.
  *
