@@ -41,7 +41,7 @@ const button = new Digital({
 });
 
 const buttonMonitor = new Monitor({
-  pin: 0,
+  pin: button.pin,
   mode: Digital.Input,
   edge: Monitor.Rising | Monitor.Falling,
 });
