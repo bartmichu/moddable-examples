@@ -37,10 +37,8 @@ const button1 = new Digital({
   edge: Digital.Rising | Digital.Falling,
   onReadable() {
     const button1Reading = this.read();
-    if (button1Reading) {
-      stopButton1Timeout();
-    } else {
-      stopButton1Timeout();
+    stopButton1Timeout();
+    if (!button1Reading) {
       button1TimeoutId = System.setTimeout(() => {
         trace('Pull-up button rising\n');
       }, 50);
@@ -54,10 +52,8 @@ const button2 = new Digital({
   edge: Digital.Rising | Digital.Falling,
   onReadable() {
     const button2Reading = this.read();
-    if (button2Reading) {
-      stopButton2Timeout();
-    } else {
-      stopButton2Timeout();
+    stopButton2Timeout();
+    if (!button2Reading) {
       button2TimeoutId = System.setTimeout(() => {
         trace('Pull-down button rising\n');
       }, 50);
