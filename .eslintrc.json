@@ -1,6 +1,6 @@
 {
     "env": {
-        "es6": true
+        "es2020": true
     },
     "extends": [
         "airbnb-base"
@@ -13,7 +13,6 @@
         "debugger": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
