@@ -14,6 +14,7 @@
 import Digital from 'builtin/digital';
 
 let timeoutId = null;
+const pressDelay = 1000;
 
 const stopTimeout = function stopTimeout() {
   try {
@@ -31,13 +32,11 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
   onReadable() {
     const reading = this.read();
-    if (reading) {
-      stopTimeout();
-    } else {
-      stopTimeout();
+    stopTimeout();
+    if (!reading) {
       timeoutId = System.setTimeout(() => {
         led.write(!led.read());
-      }, 1000);
+      }, pressDelay);
     }
   },
 });
