@@ -1,24 +1,30 @@
 /*
  * Tested on: ESP8266 (NodeMCU, Moddable One)
  *
- * Hold a button to toggle LED.
+ * Use a button to toggle LED.
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
  * - Built-in Flash button available via GPIO 0.
  * - No debouncing.
  */
 
-import Digital from 'builtin/digital';
+import Digital from 'pins/digital';
+import Monitor from 'pins/digital/monitor';
 
 const led = new Digital({ pin: 2, mode: Digital.Output });
 
 const button = new Digital({
   pin: 0,
   mode: Digital.Input,
-  edge: Digital.Falling,
-  onReadable() {
-    led.write(!led.read());
-  },
 });
+
+const buttonMonitor = new Monitor({
+  pin: button.pin,
+  mode: Digital.Input,
+  edge: Monitor.Falling,
+});
+
+buttonMonitor.onChanged = function onChanged() {
+  led.write(!led.read());
+};
