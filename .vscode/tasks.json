@@ -2,6 +2,24 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Moddable SDK: Upload on ESP8266 (slow)",
+      "type": "shell",
+      "command": "export UPLOAD_SPEED=115200 DEBUGGER_SPEED=115200 && mcconfig -m -p esp",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Moddable SDK: Upload and debug on ESP8266 (slow)",
+      "type": "shell",
+      "command": "export UPLOAD_SPEED=115200 DEBUGGER_SPEED=115200 && mcconfig -d -m -p esp",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Moddable SDK: Upload on ESP8266",
       "type": "shell",
       "command": "mcconfig -m -p esp",
