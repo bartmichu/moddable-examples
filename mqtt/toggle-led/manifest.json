@@ -1,0 +1,20 @@
+{
+  "include": [
+    "$(MODDABLE)/examples/manifest_base.json",
+    "$(MODDABLE)/examples/manifest_net.json",
+    "$(MODDABLE)/modules/crypt/tls.json",
+    "$(MODDABLE)/modules/network/mqtt/manifest.json",
+    "$(MODDABLE)/modules/pins/digital/manifest.json",
+    "$(MODDABLE)/modules/pins/digital/monitor/manifest.json"
+  ],
+  "modules": {
+    "*": [
+      "./main"
+    ]
+  },
+  "resources": {
+    "*": [
+      "./mosquitto.org"
+    ]
+  }
+}
