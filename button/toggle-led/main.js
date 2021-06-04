@@ -12,19 +12,22 @@
 import Digital from 'pins/digital';
 import Monitor from 'pins/digital/monitor';
 
-const led = new Digital({ pin: 2, mode: Digital.Output });
+const led = new Digital({
+  pin: 2,
+  mode: Digital.Output
+});
 
 const button = new Digital({
   pin: 0,
-  mode: Digital.Input,
+  mode: Digital.Input
 });
 
 const buttonMonitor = new Monitor({
   pin: button.pin,
   mode: Digital.Input,
-  edge: Monitor.Falling,
+  edge: Monitor.Falling
 });
 
-buttonMonitor.onChanged = function onChanged() {
+buttonMonitor.onChanged = function onChanged () {
   led.write(!led.read());
 };
