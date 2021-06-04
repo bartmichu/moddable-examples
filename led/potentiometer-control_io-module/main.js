@@ -10,11 +10,15 @@
  * - 10-bit resolution for ADC and PWM.
  */
 
-import Analog from 'builtin/analog';
-import PWM from 'builtin/pwm';
+import Analog from 'embedded:io/analog';
+import PWM from 'embedded:io/pwm';
 
-const led = new PWM({ pin: 2, hz: 10000 });
-const potentiometer = new Analog();
+const potentiometer = new Analog({});
+
+const led = new PWM({
+  pin: 2,
+  hz: 10000
+});
 
 System.setInterval(() => {
   led.write(potentiometer.read());

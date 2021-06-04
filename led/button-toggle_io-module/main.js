@@ -10,15 +10,18 @@
  * - No debouncing.
  */
 
-import Digital from 'builtin/digital';
+import Digital from 'embedded:io/digital';
 
-const led = new Digital({ pin: 2, mode: Digital.Output });
+const led = new Digital({
+  pin: 2,
+  mode: Digital.Output
+});
 
 const button = new Digital({
   pin: 0,
   mode: Digital.Input,
   edge: Digital.Falling,
-  onReadable() {
+  onReadable () {
     led.write(!led.read());
-  },
+  }
 });
