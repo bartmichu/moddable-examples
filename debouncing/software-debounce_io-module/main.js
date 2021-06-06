@@ -7,11 +7,11 @@
  * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
  * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
  * - Built-in Flash button available via GPIO 0.
- * - Software debouncing.
+ * - Simple software debouncing.
  * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
-import Digital from 'builtin/digital';
+import Digital from 'embedded:io/digital';
 
 let pressTimeoutId = null;
 let holdTimeoutId = null;
@@ -20,28 +20,28 @@ const holdDelay = 1000;
 
 const led = new Digital({
   pin: 2,
-  mode: Digital.Output,
+  mode: Digital.Output
 });
 
-const stopTimeouts = function stopTimeouts() {
+const stopTimeouts = function stopTimeouts () {
   try {
     System.clearTimeout(pressTimeoutId);
   } catch (error) {
-    // trace(`This is probably normal: ${error}\n`);
+    trace(`This is probably normal: ${error}\n`);
   }
 
   try {
     System.clearTimeout(holdTimeoutId);
   } catch (error) {
-    // trace(`This is probably normal: ${error}\n`);
+    trace(`This is probably normal: ${error}\n`);
   }
 };
 
-const pressHandler = function pressHandler() {
+const pressHandler = function pressHandler () {
   led.write(1);
 };
 
-const holdHandler = function holdHandler() {
+const holdHandler = function holdHandler () {
   led.write(0);
 };
 
@@ -50,7 +50,7 @@ const button = new Digital({
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
-  onReadable() {
+  onReadable () {
     if (this.read()) {
       stopTimeouts();
     } else {
@@ -64,5 +64,5 @@ const button = new Digital({
         holdHandler();
       }, holdDelay);
     }
-  },
+  }
 });
