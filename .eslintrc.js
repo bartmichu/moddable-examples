@@ -1,18 +1,28 @@
 module.exports = {
-  'env': {
-    'es6': true,
+  env: {
+    es2021: true,
   },
-  'extends': [
-    'google',
+  extends: [
+    'airbnb-base',
   ],
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  'parserOptions': {
-    'ecmaVersion': 2018,
-    'sourceType': 'module',
+  rules: {
+    // 'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    'no-bitwise': 'off',
+    // 'no-unused-vars': 'warn',
+    // 'no-debugger': 'off',
+    // semi: ['warn', 'always'],
+    // 'semi-style': ['warn', 'last']
   },
-  'rules': {
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    System: 'readonly',
+    trace: 'readonly',
+    debugger: 'readonly',
   },
 };

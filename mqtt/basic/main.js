@@ -13,7 +13,6 @@
  * - https://github.com/Moddable-OpenSource/moddable/blob/public/documentation/network/network.md#class-mqtt
  */
 
-
 import Client from 'mqtt';
 
 const clientId = 'esp8266';

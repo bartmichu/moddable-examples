@@ -17,7 +17,7 @@ const potentiometer = new Analog({});
 
 const led = new PWM({
   pin: 2,
-  hz: 10000
+  hz: 10000,
 });
 
 System.setInterval(() => {

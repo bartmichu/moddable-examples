@@ -16,7 +16,7 @@ import Digital from 'embedded:io/digital';
 let timeoutId = null;
 const pressDelay = 1000;
 
-const stopTimeout = function stopTimeout () {
+const stopTimeout = function stopTimeout() {
   try {
     System.clearTimeout(timeoutId);
   } catch (error) {
@@ -26,15 +26,16 @@ const stopTimeout = function stopTimeout () {
 
 const led = new Digital({
   pin: 2,
-  mode: Digital.Output
+  mode: Digital.Output,
 });
 
+// eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 0,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
-  onReadable () {
+  onReadable() {
     const reading = this.read();
     stopTimeout();
     if (!reading) {
@@ -42,5 +43,5 @@ const button = new Digital({
         led.write(!led.read());
       }, pressDelay);
     }
-  }
+  },
 });

@@ -18,7 +18,7 @@ const yellow = poco.makeColor(255, 255, 0);
 const red = poco.makeColor(255, 0, 0);
 let timeoutId = null;
 
-const stopTimeout = function stopTimeout () {
+const stopTimeout = function stopTimeout() {
   try {
     System.clearTimeout(timeoutId);
   } catch (error) {
@@ -26,7 +26,7 @@ const stopTimeout = function stopTimeout () {
   }
 };
 
-const paintBackground = function paintBackground (color) {
+const paintBackground = function paintBackground(color) {
   poco.begin();
   poco.fillRectangle(color, 0, 0, poco.width, poco.height);
   poco.end();
@@ -34,11 +34,12 @@ const paintBackground = function paintBackground (color) {
 
 paintBackground(black);
 
+// eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 0,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
-  onReadable () {
+  onReadable() {
     const reading = this.read();
     if (reading) {
       stopTimeout();
@@ -50,5 +51,5 @@ const button = new Digital({
         paintBackground(red);
       }, 1000);
     }
-  }
+  },
 });

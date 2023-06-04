@@ -20,10 +20,10 @@ const holdDelay = 1000;
 
 const led = new Digital({
   pin: 2,
-  mode: Digital.Output
+  mode: Digital.Output,
 });
 
-const stopTimeouts = function stopTimeouts () {
+const stopTimeouts = function stopTimeouts() {
   try {
     System.clearTimeout(pressTimeoutId);
   } catch (error) {
@@ -37,20 +37,21 @@ const stopTimeouts = function stopTimeouts () {
   }
 };
 
-const pressHandler = function pressHandler () {
+const pressHandler = function pressHandler() {
   led.write(1);
 };
 
-const holdHandler = function holdHandler () {
+const holdHandler = function holdHandler() {
   led.write(0);
 };
 
+// eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 0,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
-  onReadable () {
+  onReadable() {
     if (this.read()) {
       stopTimeouts();
     } else {
@@ -64,5 +65,5 @@ const button = new Digital({
         holdHandler();
       }, holdDelay);
     }
-  }
+  },
 });

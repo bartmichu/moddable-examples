@@ -15,7 +15,7 @@ import DigitalBank from 'embedded:io/digitalbank';
 
 const rgbLed = new DigitalBank({
   pins: (1 << 13) | (1 << 12) | (1 << 14),
-  mode: DigitalBank.Output
+  mode: DigitalBank.Output,
 });
 
 const pinMask = [8192, 4096, 16384];

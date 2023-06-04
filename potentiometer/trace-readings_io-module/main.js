@@ -13,7 +13,7 @@ import Analog from 'embedded:io/analog';
 
 const potentiometer = new Analog({});
 
-function scaleResolution (value, resolution) {
+function scaleResolution(value, resolution) {
   return value / (1 << resolution);
 }
 

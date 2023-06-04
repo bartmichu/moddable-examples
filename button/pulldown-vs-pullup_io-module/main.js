@@ -15,7 +15,7 @@ import Digital from 'embedded:io/digital';
 let button1TimeoutId = null;
 let button2TimeoutId = null;
 
-const stopButton1Timeout = function stopButton1Timeout () {
+const stopButton1Timeout = function stopButton1Timeout() {
   try {
     System.clearTimeout(button1TimeoutId);
   } catch (error) {
@@ -23,7 +23,7 @@ const stopButton1Timeout = function stopButton1Timeout () {
   }
 };
 
-const stopButton2Timeout = function stopButton2Timeout () {
+const stopButton2Timeout = function stopButton2Timeout() {
   try {
     System.clearTimeout(button2TimeoutId);
   } catch (error) {
@@ -31,11 +31,12 @@ const stopButton2Timeout = function stopButton2Timeout () {
   }
 };
 
+// eslint-disable-next-line no-unused-vars
 const button1 = new Digital({
   pin: 4,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
-  onReadable () {
+  onReadable() {
     const button1Reading = this.read();
     stopButton1Timeout();
     if (!button1Reading) {
@@ -43,14 +44,15 @@ const button1 = new Digital({
         trace('Pull-up button rising\n');
       }, 50);
     }
-  }
+  },
 });
 
+// eslint-disable-next-line no-unused-vars
 const button2 = new Digital({
   pin: 5,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
-  onReadable () {
+  onReadable() {
     const button2Reading = this.read();
     stopButton2Timeout();
     if (!button2Reading) {
@@ -58,5 +60,5 @@ const button2 = new Digital({
         trace('Pull-down button rising\n');
       }, 50);
     }
-  }
+  },
 });

@@ -15,15 +15,16 @@ import Digital from 'embedded:io/digital';
 const led = new Digital(
   {
     pin: 2,
-    mode: Digital.Output
-  }
+    mode: Digital.Output,
+  },
 );
 
+// eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 0,
   mode: Digital.InputPullUp,
   edge: Digital.Rising | Digital.Falling,
-  onReadable () {
+  onReadable() {
     led.write(this.read());
-  }
+  },
 });

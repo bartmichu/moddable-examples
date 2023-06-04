@@ -15,7 +15,7 @@ import PWM from 'embedded:io/pwm';
 
 const led = new PWM({
   pin: 2,
-  hz: 10000
+  hz: 10000,
 });
 
 const potentiometer = new Analog({});
