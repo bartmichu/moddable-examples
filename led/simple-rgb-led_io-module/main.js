@@ -1,11 +1,11 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Cycle through different colors on an RGB LED without using PWM.
  *
- * Cycle an RGB LED without using PWM.
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - RGB LED connected as follows:
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - An RGB LED is connected as follows:
  *     Red pin -> GPIO 13
  *     Green pin -> GPIO 12
  *     Blue pin -> GPIO 14
@@ -20,6 +20,7 @@ const rgbLed = new DigitalBank({
 
 const pinMask = [8192, 4096, 16384];
 let index = 0;
+
 System.setInterval(() => {
   rgbLed.write(pinMask[index]);
   index = (index + 1) % pinMask.length;

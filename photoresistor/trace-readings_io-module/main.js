@@ -1,12 +1,12 @@
 /*
- * Tested on: ESP8266 (NodeMCU)
+ * Trace the readings of a photoresistor.
  *
- * Trace photoresistor readings.
+ * Tested on: ESP8266 (NodeMCU).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - ESP8266 has only one analog input so the pin property is unused.
- * - Run with xsbug.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - The ESP8266 has only one analog input, so the "pin" property is not used.
+ *   - Start the application with debugging enabled.
  */
 
 import Analog from 'embedded:io/analog';

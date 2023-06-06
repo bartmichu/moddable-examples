@@ -1,14 +1,14 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Hold a button to toggle an LED.
  *
- * Toggle LED with a button hold.
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
- * - Built-in Flash button available via GPIO 0.
- * - Simple software debouncing.
- * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
+ *   - Using a built-in Flash button connected to GPIO 0.
+ *   - Using a simple software debouncing mechanism.
+ *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'embedded:io/digital';
@@ -34,6 +34,7 @@ const button = new Digital({
   pin: 0,
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
+
   onReadable() {
     const reading = this.read();
     stopTimeout();

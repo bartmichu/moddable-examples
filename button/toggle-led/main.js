@@ -1,12 +1,12 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Use a button to toggle an LED.
  *
- * Use a button to toggle LED.
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
- * - Built-in Flash button available via GPIO 0.
- * - No debouncing.
+ *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
+ *   - Using a built-in Flash button connected to GPIO 0.
+ *   - No debouncing mechanism has been implemented for the button.
  */
 
 import Digital from 'pins/digital';

@@ -1,13 +1,13 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Use a button to control an LED.
  *
- * Use a button to control LED.
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
- * - Built-in Flash button available via GPIO 0.
- * - No debouncing.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
+ *   - Using a built-in Flash button connected to GPIO 0.
+ *   - No debouncing mechanism has been implemented for the button.
  */
 
 import Digital from 'embedded:io/digital';

@@ -1,12 +1,12 @@
 /*
- * Tested on: ESP8266 (Moddable One)
+ * Press or hold the button to change the background color.
  *
- * Press or hold the button to change background color.
+ * Tested on: ESP8266 (Moddable One).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Built-in Flash button available via GPIO 0.
- * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a built-in Flash button connected to GPIO 0.
+ *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'embedded:io/digital';

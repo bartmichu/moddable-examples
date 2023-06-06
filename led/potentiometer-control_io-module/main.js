@@ -1,13 +1,13 @@
 /*
- * Tested on: ESP8266 (NodeMCU)
+ * Control the brightness of an LED using a potentiometer.
  *
- * Control brightness of a LED with potentiometer.
+ * Tested on: ESP8266 (NodeMCU).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
- * - ESP8266 has only one analog input so the pin property is unused.
- * - 10-bit resolution for ADC and PWM.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
+ *   - The ESP8266 has only one analog input, so the "pin" property is not used.
+ *   - The ADC and PWM of the ESP8266 have a 10-bit resolution.
  */
 
 import Analog from 'embedded:io/analog';

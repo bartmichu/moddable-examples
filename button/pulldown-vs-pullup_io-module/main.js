@@ -1,13 +1,13 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
- *
  * Trace rising edge events on pull-up and pull-down buttons.
  *
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
+ *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Simple software debouncing.
- * - Run with xsbug.
- * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a simple software debouncing mechanism.
+ *   - Start the application with debugging enabled.
+ *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'embedded:io/digital';
