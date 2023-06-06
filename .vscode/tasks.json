@@ -54,6 +54,23 @@
         "cwd": "${workspaceFolder}/${relativeFileDirname}"
       },
       "problemMatcher": []
+    },{
+      "label": "Moddable SDK: Upload on Raspberry Pi Pico W",
+      "type": "shell",
+      "command": "mcconfig -m -p pico/pico_w",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Moddable SDK: Upload and debug on Raspberry Pi Pico W",
+      "type": "shell",
+      "command": "mcconfig -d -m -p pico/pico_w",
+      "options": {
+        "cwd": "${workspaceFolder}/${relativeFileDirname}"
+      },
+      "problemMatcher": []
     }
   ]
 }
