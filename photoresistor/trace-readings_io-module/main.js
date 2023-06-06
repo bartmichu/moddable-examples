@@ -18,5 +18,6 @@ function scaleResolution(value, resolution) {
 }
 
 System.setInterval(() => {
-  trace(scaleResolution(photoresistor.read(), photoresistor.resolution), '\n');
-}, 200);
+  const reading = photoresistor.read();
+  trace('Raw:', reading, ' Scaled:', scaleResolution(reading, photoresistor.resolution), '\n');
+}, 300);

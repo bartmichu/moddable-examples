@@ -18,5 +18,6 @@ function scaleResolution(value, resolution) {
 }
 
 System.setInterval(() => {
-  trace(scaleResolution(potentiometer.read(), potentiometer.resolution), '\n');
-}, 200);
+  const reading = potentiometer.read();
+  trace('Raw:', reading, ' Scaled:', scaleResolution(reading, potentiometer.resolution), '\n');
+}, 300);
