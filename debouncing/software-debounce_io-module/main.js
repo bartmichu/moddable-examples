@@ -1,49 +1,20 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Continuously press the button and observe the drift in the counters.
  *
- * Press and/or hold a button to toggle LED.
+ * Tested on: ESP8266 (NodeMCU).
  *
  * Notes:
- * - Uses experimental ESP8266 implementation of TC53 IO class pattern.
- * - Built-in LED available via pulled up GPIO 2, HIGH at boot.
- * - Built-in Flash button available via GPIO 0.
- * - Simple software debouncing.
- * - Disable "BREAK -> On Exceptions" option in xsbug preferences.
+ *   - Start the application with debugging enabled.
+ *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
+ *   - Using a built-in Flash button connected to GPIO 0.
+ *   - Using a simple software debouncing mechanism.
  */
 
 import Digital from 'embedded:io/digital';
 
-let pressTimeoutId = null;
-let holdTimeoutId = null;
-const pressDelay = 100;
-const holdDelay = 1000;
-
-const led = new Digital({
-  pin: 2,
-  mode: Digital.Output,
-});
-
-const stopTimeouts = function stopTimeouts() {
-  try {
-    System.clearTimeout(pressTimeoutId);
-  } catch (error) {
-    trace(`This is probably normal: ${error}\n`);
-  }
-
-  try {
-    System.clearTimeout(holdTimeoutId);
-  } catch (error) {
-    trace(`This is probably normal: ${error}\n`);
-  }
-};
-
-const pressHandler = function pressHandler() {
-  led.write(1);
-};
-
-const holdHandler = function holdHandler() {
-  led.write(0);
-};
+let counter = 0;
+let debouncedCounter = 0;
 
 // eslint-disable-next-line no-unused-vars
 const button = new Digital({
@@ -52,18 +23,19 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
 
   onReadable() {
-    if (this.read()) {
-      stopTimeouts();
+    const newState = this.read();
+    counter += 1;
+
+    // eslint-disable-next-line no-use-before-define
+    if (newState === state) {
+      trace('*OINK*\n');
     } else {
-      stopTimeouts();
-
-      pressTimeoutId = System.setTimeout(() => {
-        pressHandler();
-      }, pressDelay);
-
-      holdTimeoutId = System.setTimeout(() => {
-        holdHandler();
-      }, holdDelay);
+      // eslint-disable-next-line no-use-before-define
+      state = newState;
+      debouncedCounter += 1;
+      trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
     }
   },
 });
+
+let state = button.read();
