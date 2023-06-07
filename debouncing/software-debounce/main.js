@@ -26,16 +26,16 @@ const buttonMonitor = new Monitor({
 
 let counter = 0;
 let debouncedCounter = 0;
-let state = buttonMonitor.read();
+let reading = buttonMonitor.read();
 
 buttonMonitor.onChanged = function onChanged() {
-  const newState = buttonMonitor.read();
+  const newReading = buttonMonitor.read();
   counter += 1;
 
-  if (newState === state) {
+  if (newReading === reading) {
     trace('*OINK*\n');
   } else {
-    state = newState;
+    reading = newReading;
     debouncedCounter += 1;
     trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
   }

@@ -23,19 +23,19 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
 
   onReadable() {
-    const newState = this.read();
+    const newReading = this.read();
     counter += 1;
 
     // eslint-disable-next-line no-use-before-define
-    if (newState === state) {
+    if (newReading === reading) {
       trace('*OINK*\n');
     } else {
       // eslint-disable-next-line no-use-before-define
-      state = newState;
+      reading = newReading;
       debouncedCounter += 1;
       trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
     }
   },
 });
 
-let state = button.read();
+let reading = button.read();
