@@ -5,7 +5,6 @@
  *
  * Notes:
  *   - Start the application with debugging enabled.
- *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
  *   - Using a built-in Flash button connected to GPIO 0.
  *   - Using a simple software debouncing mechanism.
  */
