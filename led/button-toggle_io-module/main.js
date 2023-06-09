@@ -23,6 +23,14 @@ const button = new Digital({
   mode: Digital.Input,
   edge: Digital.Falling,
   onReadable() {
-    led.write(!led.read());
+    const buttonReading = this.read();
+    if (buttonReading === 0) {
+      // eslint-disable-next-line no-use-before-define
+      led.write(ledState);
+      // eslint-disable-next-line no-use-before-define
+      ledState = !ledState;
+    }
   },
 });
+
+let ledState = button.read();

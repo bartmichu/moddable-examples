@@ -40,8 +40,13 @@ const button = new Digital({
     stopTimeout();
     if (!reading) {
       timeoutId = System.setTimeout(() => {
-        led.write(!led.read());
+        // eslint-disable-next-line no-use-before-define
+        led.write(ledState);
+        // eslint-disable-next-line no-use-before-define
+        ledState = !ledState;
       }, pressDelay);
     }
   },
 });
+
+let ledState = button.read();
