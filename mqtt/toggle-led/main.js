@@ -1,12 +1,12 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Encrypted connection.
- * - Example usage:
- *   mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
- *   mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m "ping"
- *   mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m "toggle"
+ *   - Using an unencrypted connection.
+ *   - Example usage:
+ *     mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
+ *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m "ping"
+ *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m "toggle"
  */
 
 import Client from 'mqtt';

@@ -4,7 +4,7 @@
  * Tested on: ESP8266 (Moddable One).
  *
  * Notes:
- *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in Flash button connected to GPIO 0.
  *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */

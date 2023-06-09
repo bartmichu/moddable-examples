@@ -6,7 +6,7 @@
  * Notes:
  *   - Start the application with debugging enabled.
  *   - Using a built-in Flash button connected to GPIO 0.
- *   - Using a simple software debouncing mechanism.
+ *   - Using a leading edge debouncing mechanism.
  */
 
 import Digital from 'pins/digital';

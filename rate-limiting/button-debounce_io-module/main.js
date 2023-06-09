@@ -7,7 +7,7 @@
  *   - Start the application with debugging enabled.
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in Flash button connected to GPIO 0.
- *   - Using a simple software debouncing mechanism.
+ *   - Using a leading edge debouncing mechanism.
  */
 
 import Digital from 'embedded:io/digital';

@@ -4,9 +4,9 @@
  * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- *   - Uses IO module, an experimental implementation of ECMA-419.
- *   - Using a simple software debouncing mechanism.
  *   - Start the application with debugging enabled.
+ *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - Using a leading edge debouncing mechanism.
  *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */
 

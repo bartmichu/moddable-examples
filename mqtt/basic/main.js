@@ -1,16 +1,13 @@
 /*
- * Tested on: ESP8266 (NodeMCU, Moddable One)
+ * Trace the messages received from a subscribed MQTT topic and respond accordingly when necessary.
  *
- * Trace messages from subscribed topic and reply when appropriate.
+ * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- * - Unencrypted connection.
- * - Example usage:
- *   mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
- *   mosquitto_pub -h test.mosquitto.org -t "moddableexamples/cli" -m 'hello'
- *
- * Relevant documentation:
- * - https://github.com/Moddable-OpenSource/moddable/blob/public/documentation/network/network.md#class-mqtt
+ *   - Using an unencrypted connection.
+ *   - Example usage:
+ *     mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
+ *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/cli" -m 'hello'
  */
 
 import Client from 'mqtt';

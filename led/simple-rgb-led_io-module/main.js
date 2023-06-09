@@ -4,7 +4,7 @@
  * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- *   - Uses IO module, an experimental implementation of ECMA-419.
+ *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - An RGB LED is connected as follows:
  *     Red pin -> GPIO 13
  *     Green pin -> GPIO 12

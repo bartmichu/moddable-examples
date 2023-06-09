@@ -4,9 +4,9 @@
  * Tested on: ESP8266 (NodeMCU).
  *
  * Notes:
- *   - Uses IO module, an experimental implementation of ECMA-419.
- *   - The ESP8266 has only one analog input, so the "pin" property is not used.
  *   - Start the application with debugging enabled.
+ *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - The ESP8266 has only one analog input, so the "pin" property is not used.
  */
 
 import Analog from 'embedded:io/analog';
