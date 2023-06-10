@@ -1,42 +1,45 @@
 /*
  * Trace the messages received from a subscribed MQTT topic and respond accordingly when necessary.
  *
- * Tested on: ESP8266 (NodeMCU, Moddable One).
+ * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Pico W).
  *
  * Notes:
- *   - Using an unencrypted connection.
+ *   - Using an unencrypted and unauthenticated connection.
+ *   - One way to connect to the wireless network is by issuing the following command:
+ *     mcconfig -m -p esp ssid="xxx" password="yyy"
  *   - Example usage:
  *     mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
- *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/cli" -m 'hello'
+ *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/command" -m 'ping'
+ *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/command" -m 'whatever'
  */
 
 import Client from 'mqtt';
 
-const clientId = 'esp8266';
 const broker = 'test.mosquitto.org';
 
 const mqttClient = new Client({
   host: broker,
-  id: clientId,
+  timeout: 60_000,
 });
 
 mqttClient.onReady = function onReady() {
-  trace(`Connection to ${broker} is established.\n`);
+  trace(`The connection to ${broker} has been established.\n`);
 
-  mqttClient.subscribe('moddableexamples/#');
+  this.subscribe('moddableexamples/#');
+  this.publish('moddableexamples/presence', `I'm here ${Date()}`);
+};
 
-  mqttClient.publish(`moddableexamples/${clientId}`, 'Hi, I am ready');
+mqttClient.onMessage = function onMessage(topic, body) {
+  const message = String.fromArrayBuffer(body);
+  trace(`received "${topic}": ${message}\n`);
 
-  mqttClient.onMessage = function onMessage(topic, data) {
-    trace(`Topic: ${topic}\n`);
-    trace(`Data: ${String.fromArrayBuffer(data)}\n\n`);
-
-    if (topic !== `moddableexamples/${clientId}`) {
-      mqttClient.publish(`moddableexamples/${clientId}`, 'Roger');
+  if (topic === 'moddableexamples/command') {
+    if (message === 'ping') {
+      this.publish('moddableexamples/confirm', `pong ${Date()}`);
     }
-  };
+  }
 };
 
 mqttClient.onClose = function onClose() {
-  trace(`Connection to ${broker} is lost or closed.\n`);
+  trace(`The connection to ${broker} has been lost or closed.\n`);
 };
