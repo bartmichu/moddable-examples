@@ -4,7 +4,7 @@
  * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- *   - Start the application with debugging enabled.
+ *   - A debugger is required. Use the -d argument to build a debug instrumented version.
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in Flash button connected to GPIO 0.
  *   - Using a simple throttling mechanism.

@@ -4,7 +4,7 @@
  * Tested on: ESP8266 (NodeMCU, Moddable One).
  *
  * Notes:
- *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
+ *   - A debugger is required. Use the -d argument to build a debug instrumented version.
  *   - Using the PubNub module, which does not utilize SecureSocket for communication.
  */
 
