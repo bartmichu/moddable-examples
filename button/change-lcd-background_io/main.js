@@ -1,12 +1,11 @@
 /*
- * Press or hold the button to change the background color.
+ * Hold a button to change the background color.
  *
  * Tested on: ESP8266 (Moddable One).
  *
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in Flash button connected to GPIO 0.
- *   - Disable the "BREAK -> On Exceptions" option in xsbug preferences.
  */
 
 import Digital from 'embedded:io/digital';
@@ -16,15 +15,7 @@ const poco = new Poco(global.screen, { displayListLength: 2048 });
 const black = poco.makeColor(0, 0, 0);
 const yellow = poco.makeColor(255, 255, 0);
 const red = poco.makeColor(255, 0, 0);
-let timeoutId = null;
-
-const stopTimeout = function stopTimeout() {
-  try {
-    System.clearTimeout(timeoutId);
-  } catch (error) {
-    trace(`This is probably normal: ${error}\n`);
-  }
-};
+let holdTimer = null;
 
 const paintBackground = function paintBackground(color) {
   poco.begin();
@@ -40,16 +31,15 @@ const button = new Digital({
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
   onReadable() {
-    const reading = this.read();
-    if (reading) {
-      stopTimeout();
-      paintBackground(black);
-    } else {
-      stopTimeout();
-      paintBackground(yellow);
-      timeoutId = System.setTimeout(() => {
+    const reading = button.read();
+    if (reading === 0) {
+      holdTimer = System.setTimeout(() => {
         paintBackground(red);
+        holdTimer = null;
       }, 1000);
+    } else if (holdTimer !== null) {
+      System.clearTimeout(holdTimer);
+      paintBackground(yellow);
     }
   },
 });

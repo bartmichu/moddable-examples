@@ -7,21 +7,13 @@
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
  *   - Using a built-in Flash button connected to GPIO 0.
- *   - Using a leading edge debouncing mechanism.
+ *   - Using a simple throttling mechanism.
  */
 
 import Digital from 'embedded:io/digital';
 
-let timeoutId = null;
-const pressDelay = 1000;
-
-const stopTimeout = function stopTimeout() {
-  try {
-    System.clearTimeout(timeoutId);
-  } catch (error) {
-    trace(`This is probably normal: ${error}\n`);
-  }
-};
+let holdTimer = null;
+const holdThreshold = 1000;
 
 const led = new Digital({
   pin: 2,
@@ -35,15 +27,17 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
 
   onReadable() {
-    const reading = this.read();
-    stopTimeout();
-    if (!reading) {
-      timeoutId = System.setTimeout(() => {
+    const reading = button.read();
+    if (reading === 0) {
+      holdTimer = System.setTimeout(() => {
         // eslint-disable-next-line no-use-before-define
         led.write(ledState);
         // eslint-disable-next-line no-use-before-define
         ledState = !ledState;
-      }, pressDelay);
+        holdTimer = null;
+      }, holdThreshold);
+    } else if (holdTimer !== null) {
+      System.clearTimeout(holdTimer);
     }
   },
 });
