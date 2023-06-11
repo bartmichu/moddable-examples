@@ -10,13 +10,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // 'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'no-bitwise': 'off',
-    // 'no-unused-vars': 'warn',
-    // 'no-debugger': 'off',
-    // semi: ['warn', 'always'],
-    // 'semi-style': ['warn', 'last']
   },
   globals: {
     Atomics: 'readonly',
