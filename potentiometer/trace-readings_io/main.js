@@ -1,17 +1,25 @@
 /*
  * Trace the readings of a potentiometer.
  *
- * Tested on: ESP8266 (NodeMCU).
+ * Tested on: ESP8266 (NodeMCU), RP2040 (Raspberry Pi Pico W).
  *
  * Notes:
  *   - A debugger is required. Use the -d argument to build a debug instrumented version.
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
- *   - The ESP8266 has only one analog input, so the "pin" property is not used.
+ *
+ * Parts list:
+ *   - Raspberry Pi Pico W
+ *   - Breadboard
+ *   - Jumper wires
+ *   - Potentiometer
  */
 
 import Analog from 'embedded:io/analog';
 
-const potentiometer = new Analog({});
+// pin 28 on Pico W, pin 0 on NodeMCU V2
+const potentiometer = new Analog({
+  pin: 28,
+});
 
 function scaleResolution(value, resolution) {
   return value / (1 << resolution);

@@ -6,6 +6,9 @@
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - Using a built-in Flash button connected to GPIO 0.
+ *
+ * Parts list:
+ *   - Moddable One
  */
 
 import Digital from 'embedded:io/digital';
