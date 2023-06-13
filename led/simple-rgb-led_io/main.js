@@ -9,6 +9,13 @@
  *     Red pin -> GPIO 13
  *     Green pin -> GPIO 12
  *     Blue pin -> GPIO 14
+ *
+ * Parts list:
+ *   - Node MCU ESP8266 V2
+ *   - Breadboard
+ *   - Jumper wires
+ *   - Common-cathode RGB LED
+ *   - 3x 330 ohm Resistor (Orange, Orange, Brown, Gold)
  */
 
 import DigitalBank from 'embedded:io/digitalbank';
