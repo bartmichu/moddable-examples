@@ -1,12 +1,11 @@
 /*
  * Control an LED remotely over the internet.
  *
- * Tested on: ESP8266 (NodeMCU, Moddable One).
+ * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
  * Notes:
  *   - Using an encrypted connection.
  *   - Using an unauthenticated connection.
- *   - Using a built-in LED connected to GPIO 2, which is pulled up and set to HIGH at boot.
  *   - One way to connect to the wireless network is by issuing the following command:
  *     mcconfig -m -p esp ssid="xxx" password="yyy"
  *   - Example usage:
@@ -14,6 +13,13 @@
  *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m 'on'
  *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m 'off'
  *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/c2" -m 'toggle'
+ *
+ * Parts list:
+ *   - Raspberry Pi Pico W
+ *   - Beadboard
+ *   - Jumper wires
+ *   - Light-emitting diode (LED)
+ *   - 330 ohm Resistor (Orange, Orange, Brown, Gold)
  */
 
 import Client from 'mqtt';
@@ -27,8 +33,9 @@ const clientId = Net.get('MAC');
 const c2Topic = 'moddableexamples/c2';
 const personalTopic = `moddableexamples/${clientId}`;
 
+// pin 22 on Pico W, pin 5 on NodeMCU V2
 const led = new Digital({
-  pin: 2,
+  pin: 22,
   mode: Digital.Output,
 });
 
@@ -45,8 +52,8 @@ const mqttClient = new Client({
   },
 });
 
-const toggleLed = function toggleLed(ledState) {
-  led.write(typeof ledState === 'undefined' ? !led.read() : ledState);
+const toggleLed = function toggleLed(newState) {
+  led.write(typeof newState === 'undefined' ? !led.read() : newState);
 };
 
 mqttClient.onReady = function onReady() {
@@ -59,7 +66,6 @@ mqttClient.onReady = function onReady() {
 mqttClient.onMessage = function onMessage(topic, data) {
   if (topic === c2Topic) {
     const message = String.fromArrayBuffer(data).toLowerCase();
-
     if (message === 'on') {
       toggleLed(0);
       this.publish(personalTopic, `The LED has been turned on,  ${Date()}`);

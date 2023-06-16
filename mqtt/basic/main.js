@@ -1,7 +1,7 @@
 /*
  * Trace the messages received from a subscribed MQTT topic and respond accordingly when necessary.
  *
- * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Pico W).
+ * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
  * Notes:
  *   - Using an unencrypted and unauthenticated connection.
@@ -11,6 +11,9 @@
  *     mosquitto_sub -h test.mosquitto.org -t "moddableexamples/#" -v
  *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/command" -m 'ping'
  *     mosquitto_pub -h test.mosquitto.org -t "moddableexamples/command" -m 'whatever'
+ *
+ * Parts list:
+ *   - Microcontroller
  */
 
 import Client from 'mqtt';
