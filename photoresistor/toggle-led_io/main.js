@@ -32,5 +32,5 @@ const photoresistor = new Analog({
 });
 
 System.setInterval(() => {
-  led.write(1 ^ Math.round(photoresistor.read() / (1 << photoresistor.resolution)));
+  led.write(1 ^ Math.round(photoresistor.read() / ((1 << photoresistor.resolution) - 1)));
 }, 100);

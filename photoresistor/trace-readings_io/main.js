@@ -23,7 +23,7 @@ const photoresistor = new Analog({
 });
 
 function scaleResolution(value, resolution) {
-  return value / (1 << resolution);
+  return value / ((1 << resolution) - 1);
 }
 
 System.setInterval(() => {

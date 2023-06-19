@@ -29,5 +29,5 @@ const potentiometer = new Analog({
 });
 
 System.setInterval(() => {
-  led.write((potentiometer.read() * (1 << led.resolution)) / (1 << potentiometer.resolution));
+  led.write((potentiometer.read() * ((1 << led.resolution) - 1)) / ((1 << potentiometer.resolution) - 1));
 }, 100);
