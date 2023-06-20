@@ -5,6 +5,10 @@
  *
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - Since the ADC and PWM can have different resolutions, it is necessary to convert
+ *     the value between the two.
+ *   - Using a bitwise left shift operation to calculate the maximum allowed value
+ *     of an ADC and/or PWM.
  *
  * Parts list:
  *   - Raspberry Pi Pico W
@@ -29,5 +33,8 @@ const potentiometer = new Analog({
 });
 
 System.setInterval(() => {
-  led.write((potentiometer.read() * ((1 << led.resolution) - 1)) / ((1 << potentiometer.resolution) - 1));
+  const maxLedValue = (1 << led.resolution) - 1;
+  const maxPotentiometerValue = (1 << potentiometer.resolution) - 1;
+
+  led.write((potentiometer.read() * maxLedValue) / maxPotentiometerValue);
 }, 100);

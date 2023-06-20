@@ -6,6 +6,7 @@
  * Notes:
  *   - Using an encrypted connection.
  *   - Using an unauthenticated connection.
+ *   - Reading from an output pin is generally considered improper usage or abuse.
  *   - One way to connect to the wireless network is by issuing the following command:
  *     mcconfig -m -p esp ssid="xxx" password="yyy"
  *   - Example usage:

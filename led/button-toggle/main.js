@@ -35,8 +35,7 @@ const button = new Monitor({
 let ledState = button.read();
 
 button.onChanged = function onChanged() {
-  const buttonReading = this.read();
-  if (buttonReading === 0) {
+  if (this.read() === 0) {
     led.write(ledState);
     ledState = !ledState;
   }

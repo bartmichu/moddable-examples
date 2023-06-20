@@ -33,8 +33,7 @@ const button = new Digital({
   edge: Digital.Falling,
 
   onReadable() {
-    const buttonReading = this.read();
-    if (buttonReading === 0) {
+    if (this.read() === 0) {
       // eslint-disable-next-line no-use-before-define
       led.write(ledState);
       // eslint-disable-next-line no-use-before-define

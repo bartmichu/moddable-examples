@@ -1,0 +1,21 @@
+{
+  "include": [
+    "$(MODDABLE)/examples/manifest_base.json",
+    "$(MODDABLE)/examples/manifest_net.json",
+    "$(MODDABLE)/modules/pins/digital/manifest.json",
+    "$(MODDABLE)/modules/pins/digital/monitor/manifest.json"
+  ],
+  "modules": {
+    "*": [
+      "./main",
+      "$(MODULES)/network/http/*",
+      "$(MODULES)/network/services/pubnub/*",
+      "$(MODULES)/base/uuid/*"
+    ]
+  },
+  "preload": [
+    "http",
+    "pubnub",
+    "uuid"
+  ]
+}

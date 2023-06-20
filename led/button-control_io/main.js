@@ -6,6 +6,7 @@
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - No debouncing mechanism has been implemented for the button.
+ *   - Using the bitwise XOR (exclusive OR) operation to "reverse" the button reading.
  *
  * Parts list:
  *   - Raspberry Pi Pico W

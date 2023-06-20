@@ -6,6 +6,10 @@
  *
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - The ADC and PWM can have different resolutions.
+ *   - Using a bitwise left shift operation to calculate the maximum allowed value
+ *     of an ADC and/or PWM.
+ *   - Using the bitwise XOR (exclusive OR) operation to "reverse" the photoresistor reading.
  *
  * Parts list:
  *   - Raspberry Pi Pico W
@@ -32,5 +36,7 @@ const photoresistor = new Analog({
 });
 
 System.setInterval(() => {
-  led.write(1 ^ Math.round(photoresistor.read() / ((1 << photoresistor.resolution) - 1)));
+  const maxPhotoresistorValue = (1 << photoresistor.resolution) - 1;
+
+  led.write(1 ^ Math.round(photoresistor.read() / maxPhotoresistorValue));
 }, 100);
