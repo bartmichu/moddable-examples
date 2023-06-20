@@ -5,6 +5,8 @@
  *
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - The potentiometer must be connected to a ADC (Analog-to-Digital Converter) pin.
+ *   - The LED should be connected to a PWM (Pulse Width Modulation) pin.
  *   - Since the ADC and PWM can have different resolutions, it is necessary to convert
  *     the value between the two.
  *   - Using a bitwise left shift operation to calculate the maximum allowed value

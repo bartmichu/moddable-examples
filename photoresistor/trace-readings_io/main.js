@@ -6,6 +6,7 @@
  * Notes:
  *   - A debugger is required. Use the -d argument to build a debug instrumented version.
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
+ *   - The photoresistor must be connected to a ADC (Analog-to-Digital Converter) pin.
  *   - Using a bitwise left shift operation to calculate the maximum allowed value
  *     of an ADC and/or PWM.
  *
