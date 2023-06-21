@@ -3,15 +3,11 @@
  *
  * Tested on: ESP8266 (Moddable One).
  *
- * Notes:
- *   - Using the IO module, which is an experimental implementation of ECMA-419.
- *   - Using a built-in Flash button connected to GPIO 0.
- *   - Using a simple throttling mechanism.
- *
  * Parts list:
  *   - Moddable One
  */
 
+// NOTE: Using the IO module, which is an experimental implementation of ECMA-419.
 import Digital from 'embedded:io/digital';
 import Poco from 'commodetto/Poco';
 import Timer from 'timer';
@@ -29,12 +25,14 @@ const paintBackground = function paintBackground(color) {
 
 paintBackground(black);
 
+// NOTE: Using a simple throttling mechanism.
 const holdTimer = Timer.set((id) => {
   paintBackground(red);
   Timer.schedule(id);
 }, 5000);
 Timer.schedule(holdTimer);
 
+// NOTE: Using a built-in Flash button connected to GPIO 0.
 // eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 0,

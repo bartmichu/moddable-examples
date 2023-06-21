@@ -3,9 +3,6 @@
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
- * Notes:
- *   - Using the IO module, which is an experimental implementation of ECMA-419.
- *
  * Parts list:
  *   - Raspberry Pi Pico W
  *   - Beadboard
@@ -14,9 +11,11 @@
  *   - 3x 330 ohm Resistor (Orange, Orange, Brown, Gold)
  */
 
+// NOTE: Using the IO module, which is an experimental implementation of ECMA-419.
 import DigitalBank from 'embedded:io/digitalbank';
 
-// pins 6,4,2 on Pico W, pins 13,12,14 on NodeMCU V2
+// NOTE: The LED must be connected to a GPIO (General-purpose input/output) pin,
+// e.g. pins 6,4,2 on Pico W, pins 13,12,14 on NodeMCU V2.
 const redPin = 6;
 const greenPin = 4;
 const bluePin = 2;

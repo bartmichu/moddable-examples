@@ -1,11 +1,8 @@
 /*
  * Continuously press the button and observe the drift in the counters.
+ * A debugger is required. Use the -d argument to build a debug instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU), RP2040 (Raspberry Pi Pico W).
- *
- * Notes:
- *   - A debugger is required. Use the -d argument to build a debug instrumented version.
- *   - Using a leading edge debouncing mechanism.
  *
  * Parts list:
  *   - Raspberry Pi Pico W
@@ -18,7 +15,8 @@
 import Digital from 'pins/digital';
 import Monitor from 'pins/digital/monitor';
 
-// pin 9 on Pico W, pin 12 on NodeMCU V2
+// NOTE: The button must be connected to a GPIO (General-purpose input/output) pin,
+// e.g. pin 9 on Pico W, pin 12 on NodeMCU V2.
 const button = new Monitor({
   pin: 9,
   mode: Digital.Input,
@@ -33,6 +31,7 @@ button.onChanged = function onChanged() {
   const newReading = this.read();
   counter += 1;
 
+  // NOTE: Using a leading edge debouncing mechanism.
   if (newReading === reading) {
     trace('*OINK*\n');
   } else {

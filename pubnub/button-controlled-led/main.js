@@ -1,12 +1,8 @@
 /*
  * Toggle an LED using a button over the Internet.
+ * A debugger is required. Use the -d argument to build a debug instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico).
- *
- * Notes:
- *   - A debugger is required. Use the -d argument to build a debug instrumented version.
- *   - Reading from an output pin is generally considered improper usage or abuse.
- *   - Using the PubNub module, which does not utilize SecureSocket for communication.
  *
  * Parts list:
  *   - Raspberry Pi Pico W
@@ -35,13 +31,15 @@ const publishMessage = (message) => {
   }, this);
 };
 
-// pin 22 on Pico W, pin 5 on NodeMCU V2
+// NOTE: The LED must be connected to a GPIO (General-purpose input/output) pin,
+// e.g. pin 22 on Pico W, pin 5 on NodeMCU V2.
 const led = new Digital({
   pin: 2,
   mode: Digital.Output,
 });
 
-// pin 9 on Pico W, pin 12 on NodeMCU V2
+// NOTE: The button must be connected to a GPIO (General-purpose input/output) pin,
+// e.g. pin 9 on Pico W, pin 12 on NodeMCU V2.
 const buttonMonitor = new Monitor({
   pin: 0,
   mode: Digital.Input,
@@ -66,6 +64,7 @@ pubnub.addListener({
   message(event) {
     trace(`${event.message}\n`);
     if (event.message === 'button pressed') {
+      // NOTE: Reading from an output pin is generally considered improper usage or abuse.
       led.write(!led.read());
     }
   },

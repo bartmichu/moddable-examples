@@ -1,11 +1,8 @@
 /*
  * Trace the messages received from a subscribed channel.
+ * A debugger is required. Use the -d argument to build a debug instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
- *
- * Notes:
- *   - A debugger is required. Use the -d argument to build a debug instrumented version.
- *   - Using the PubNub module, which does not utilize SecureSocket for communication.
  *
  * Parts list:
  *   - Microcontroller

@@ -4,9 +4,6 @@
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
  * Notes:
- *   - Using an encrypted connection.
- *   - Using an unauthenticated connection.
- *   - Reading from an output pin is generally considered improper usage or abuse.
  *   - One way to connect to the wireless network is by issuing the following command:
  *     mcconfig -m -p esp ssid="xxx" password="yyy"
  *   - Example usage:
@@ -34,12 +31,14 @@ const clientId = Net.get('MAC');
 const c2Topic = 'moddableexamples/c2';
 const personalTopic = `moddableexamples/${clientId}`;
 
-// pin 22 on Pico W, pin 5 on NodeMCU V2
+// NOTE: The LED must be connected to a GPIO (General-purpose input/output) pin,
+// e.g. pin 22 on Pico W, pin 5 on NodeMCU V2.
 const led = new Digital({
   pin: 22,
   mode: Digital.Output,
 });
 
+// NOTE: Using an encrypted, unauthenticated connection.
 const mqttClient = new Client({
   host: broker,
   timeout: 60_000,
@@ -54,6 +53,7 @@ const mqttClient = new Client({
 });
 
 const toggleLed = function toggleLed(newState) {
+  // NOTE: Reading from an output pin is generally considered improper usage or abuse.
   led.write(typeof newState === 'undefined' ? !led.read() : newState);
 };
 
