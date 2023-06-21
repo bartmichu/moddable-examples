@@ -36,8 +36,8 @@ const photoresistor = new Analog({
   pin: 28,
 });
 
-System.setInterval(() => {
-  const maxPhotoresistorValue = (1 << photoresistor.resolution) - 1;
+const maxPhotoresistorValue = (1 << photoresistor.resolution) - 1;
 
+System.setInterval(() => {
   led.write(1 ^ Math.round(photoresistor.read() / maxPhotoresistorValue));
 }, 100);

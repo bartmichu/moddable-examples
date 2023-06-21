@@ -5,7 +5,7 @@
  *
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
- *   - The LED should be connected to a PWM (Pulse Width Modulation) pin.
+ *   - The LED must be connected to a PWM (Pulse Width Modulation) pin.
  *   - Using a bitwise left shift operation to calculate the maximum allowed value
  *     of an ADC and/or PWM.
  *

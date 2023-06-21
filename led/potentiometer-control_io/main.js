@@ -6,7 +6,7 @@
  * Notes:
  *   - Using the IO module, which is an experimental implementation of ECMA-419.
  *   - The potentiometer must be connected to a ADC (Analog-to-Digital Converter) pin.
- *   - The LED should be connected to a PWM (Pulse Width Modulation) pin.
+ *   - The LED must be connected to a PWM (Pulse Width Modulation) pin.
  *   - Since the ADC and PWM can have different resolutions, it is necessary to convert
  *     the value between the two.
  *   - Using a bitwise left shift operation to calculate the maximum allowed value
@@ -34,9 +34,9 @@ const potentiometer = new Analog({
   pin: 28,
 });
 
-System.setInterval(() => {
-  const maxLedValue = (1 << led.resolution) - 1;
-  const maxPotentiometerValue = (1 << potentiometer.resolution) - 1;
+const maxLedValue = (1 << led.resolution) - 1;
+const maxPotentiometerValue = (1 << potentiometer.resolution) - 1;
 
+System.setInterval(() => {
   led.write((potentiometer.read() * maxLedValue) / maxPotentiometerValue);
 }, 100);
