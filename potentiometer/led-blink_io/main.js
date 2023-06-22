@@ -45,4 +45,4 @@ Timer.repeat((timerId) => {
   interval = Math.round(1000 * (potentiometer.read() / maxPotentiometerValue));
 
   Timer.schedule(timerId, interval, interval);
-}, interval === 1);
+}, 1);
