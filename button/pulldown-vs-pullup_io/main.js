@@ -23,9 +23,9 @@ const pullUpButton = new Digital({
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
+  // NOTE: Using a simple throttling mechanism.
   onReadable() {
     if (this.read() === 0) {
-      // NOTE: Using a simple throttling mechanism.
       this.timeout ??= System.setTimeout(() => {
         trace(`${Date()} Pull-up button reading equals 0 on push\n`);
         delete this.timeout;
