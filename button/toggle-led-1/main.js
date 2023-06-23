@@ -37,6 +37,6 @@ let ledState = button.read();
 button.onChanged = function onChanged() {
   if (this.read() === 0) {
     led.write(ledState);
-    ledState = !ledState;
+    ledState ^= 1;
   }
 };

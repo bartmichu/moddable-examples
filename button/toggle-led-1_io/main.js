@@ -37,7 +37,7 @@ const button = new Digital({
       // eslint-disable-next-line no-use-before-define
       led.write(ledState);
       // eslint-disable-next-line no-use-before-define
-      ledState = !ledState;
+      ledState ^= 1;
     }
   },
 });

@@ -25,5 +25,5 @@ let ledState = 1;
 
 System.setInterval(() => {
   led.write(ledState);
-  ledState = !ledState;
+  ledState ^= 1;
 }, 200);

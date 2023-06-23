@@ -1,6 +1,8 @@
 /*
  * Toggle an LED using a button over the Internet.
- * A debugger is required. Use the -d argument to build a debug instrumented version.
+ *
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
+ * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico).
  *
@@ -40,7 +42,7 @@ const led = new Digital({
 
 // NOTE: The button must be connected to a GPIO (General-purpose input/output) pin,
 // e.g. pin 9 on Pico W, pin 12 on NodeMCU V2.
-const buttonMonitor = new Monitor({
+const button = new Monitor({
   pin: 0,
   mode: Digital.Input,
   edge: Monitor.Rising | Monitor.Falling,
@@ -48,7 +50,7 @@ const buttonMonitor = new Monitor({
 
 const pressDelay = 150;
 
-buttonMonitor.onChanged = function onChanged() {
+button.onChanged = function onChanged() {
   if (this.read() === 0) {
     this.timeout ??= System.setTimeout(() => {
       publishMessage('button pressed');
@@ -65,7 +67,7 @@ pubnub.addListener({
     trace(`${event.message}\n`);
     if (event.message === 'button pressed') {
       // NOTE: Reading from an output pin is generally considered improper usage or abuse.
-      led.write(!led.read());
+      led.write(1 ^ led.read());
     }
   },
   status(event) {

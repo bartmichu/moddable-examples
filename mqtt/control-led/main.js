@@ -54,7 +54,7 @@ const mqttClient = new Client({
 
 const toggleLed = function toggleLed(newState) {
   // NOTE: Reading from an output pin is generally considered improper usage or abuse.
-  led.write(typeof newState === 'undefined' ? !led.read() : newState);
+  led.write(typeof newState === 'undefined' ? 1 ^ led.read() : newState);
 };
 
 mqttClient.onReady = function onReady() {

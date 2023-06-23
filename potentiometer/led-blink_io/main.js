@@ -40,7 +40,7 @@ let interval;
 
 Timer.repeat((timerId) => {
   led.write(ledState);
-  ledState = !ledState;
+  ledState ^= 1;
 
   interval = Math.round(1000 * (potentiometer.read() / maxPotentiometerValue));
 

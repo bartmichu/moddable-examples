@@ -31,7 +31,7 @@ led.write(ledState);
 
 // NOTE: Using timers to implement a basic throttling mechanism.
 const holdTimer = Timer.set((id) => {
-  ledState = !ledState;
+  ledState ^= 1;
   led.write(ledState);
   Timer.schedule(id);
 }, 5000);
