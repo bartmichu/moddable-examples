@@ -2,7 +2,7 @@
  * Continuously press the button and observe the drift in the raw and debounced counters.
  * A simple leading edge debouncing mechanism is being used to compensate for unreliable button.
  *
- * For the purpose of this example a debugger is necessary. Use the -d argument to builda debug
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
  * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU), RP2040 (Raspberry Pi Pico W).
@@ -40,6 +40,6 @@ button.onChanged = function onChanged() {
   } else {
     reading = newReading;
     debouncedCounter += 1;
-    trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
+    trace('raw:', counter, ' debounced:', debouncedCounter, '\n');
   }
 };

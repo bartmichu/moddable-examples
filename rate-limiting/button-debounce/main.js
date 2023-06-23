@@ -40,6 +40,6 @@ button.onChanged = function onChanged() {
   } else {
     reading = newReading;
     debouncedCounter += 1;
-    trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
+    trace('raw:', counter, ' debounced:', debouncedCounter, '\n');
   }
 };

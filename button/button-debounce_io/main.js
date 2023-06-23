@@ -18,7 +18,7 @@
 // NOTE: Using the IO module, which is an experimental implementation of ECMA-419.
 import Digital from 'embedded:io/digital';
 
-let counter = 0;
+const counter = 0;
 let debouncedCounter = 0;
 
 // NOTE: The button must be connected to a GPIO (General-purpose input/output) pin,
@@ -31,7 +31,6 @@ const button = new Digital({
 
   onReadable() {
     const newReading = this.read();
-    counter += 1;
 
     // NOTE: Comparing readings to implement a leading edge debouncing mechanism.
     // eslint-disable-next-line no-use-before-define
@@ -41,7 +40,7 @@ const button = new Digital({
       // eslint-disable-next-line no-use-before-define
       reading = newReading;
       debouncedCounter += 1;
-      trace('counter:', counter, ' debounced:', debouncedCounter, '\n');
+      trace('raw:', counter, ' debounced:', debouncedCounter, '\n');
     }
   },
 });
