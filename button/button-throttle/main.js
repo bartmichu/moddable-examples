@@ -1,6 +1,9 @@
 /*
- * Hold a button for two seconds.
- * A debugger is required. Use the -d argument to build a debug instrumented version.
+ * Hold a button for two seconds and observe the drift in the raw and debounced counters.
+ * A basic throttling mechanism is being used to compensate for unreliable button.
+ *
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
+ * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU), RP2040 (Raspberry Pi Pico W).
  *
@@ -24,7 +27,7 @@ const button = new Monitor({
   edge: Monitor.Rising | Monitor.Falling,
 });
 
-// NOTE: Using a simple throttling mechanism.
+// NOTE: Using timers to implement a basic throttling mechanism.
 const holdTimer = Timer.set((id) => {
   trace('hold\n');
   Timer.schedule(id);

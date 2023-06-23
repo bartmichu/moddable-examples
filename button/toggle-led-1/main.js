@@ -1,5 +1,6 @@
 /*
  * Use a button to toggle an LED.
+ * No debouncing or throttling mechanism is being used to compensate for unreliable button.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
@@ -25,7 +26,6 @@ const led = new Digital({
 
 // NOTE: The button must be connected to a GPIO (General-purpose input/output) pin,
 // e.g. pin 9 on Pico W, pin 12 on NodeMCU V2.
-// No debouncing mechanism has been implemented for the button.
 const button = new Monitor({
   pin: 9,
   mode: Digital.Input,

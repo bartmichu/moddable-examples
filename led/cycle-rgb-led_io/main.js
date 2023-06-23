@@ -1,5 +1,5 @@
 /*
- * Cycle through different colors on an RGB LED without using PWM.
+ * Cycle through different colors on an RGB LED.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
@@ -30,5 +30,6 @@ let index = 0;
 
 System.setInterval(() => {
   rgbLed.write(pinMask[index]);
+  // NOTE: Using the modulo operator to cycle through items in an array.
   index = (index + 1) % pinMask.length;
 }, 300);

@@ -1,6 +1,9 @@
 /*
- * Continuously press the button and observe the drift in the counters.
- * A debugger is required. Use the -d argument to build a debug instrumented version.
+ * Continuously press the button and observe the drift in the raw and debounced counters.
+ * A simple leading edge debouncing mechanism is being used to compensate for unreliable button.
+ *
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
+ * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU), RP2040 (Raspberry Pi Pico W).
  *
@@ -31,9 +34,9 @@ button.onChanged = function onChanged() {
   const newReading = this.read();
   counter += 1;
 
-  // NOTE: Using a leading edge debouncing mechanism.
+  // NOTE: Comparing readings to implement a leading edge debouncing mechanism.
   if (newReading === reading) {
-    trace('*OINK*\n');
+    trace('*dodgy event*\n');
   } else {
     reading = newReading;
     debouncedCounter += 1;

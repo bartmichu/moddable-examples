@@ -1,6 +1,9 @@
 /*
- * Trace events on pull-up and pull-down buttons.
- * A debugger is required. Use the -d argument to build a debug instrumented version.
+ * Compare events on pull-up and pull-down buttons.
+ * A basic throttling mechanism is being used to compensate for unreliable button.
+ *
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
+ * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
@@ -23,7 +26,7 @@ const pullUpButton = new Digital({
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
-  // NOTE: Using a simple throttling mechanism.
+  // NOTE: Using timers to implement a basic throttling mechanism.
   onReadable() {
     if (this.read() === 0) {
       this.timeout ??= System.setTimeout(() => {
@@ -47,7 +50,7 @@ const pullDownButton = new Digital({
 
   onReadable() {
     if (this.read() === 0) {
-      // NOTE: Using a simple throttling mechanism.
+      // NOTE: Using timers to implement a basic throttling mechanism.
       this.timeout ??= System.setTimeout(() => {
         trace(`${Date()} Pull-down button reading equals 0 on release\n`);
         delete this.timeout;

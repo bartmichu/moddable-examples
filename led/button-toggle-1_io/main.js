@@ -25,7 +25,7 @@ const led = new Digital({
 
 // NOTE: The LED must be connected to a GPIO (General-purpose input/output) pin,
 // e.g. pin 9 on Pico W, pin 12 on NodeMCU V2.
-// No debouncing mechanism has been implemented for the button.
+// No debouncing or throttling mechanism has been implemented for the button.
 // eslint-disable-next-line no-unused-vars
 const button = new Digital({
   pin: 9,

@@ -1,5 +1,6 @@
 /*
  * Hold a button to toggle an LED.
+ * A basic throttling mechanism is being used to compensate for unreliable button.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
@@ -28,7 +29,7 @@ let ledState = 0;
 
 led.write(ledState);
 
-// NOTE: Using a simple throttling mechanism.
+// NOTE: Using timers to implement a basic throttling mechanism.
 const holdTimer = Timer.set((id) => {
   ledState = !ledState;
   led.write(ledState);

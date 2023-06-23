@@ -1,5 +1,6 @@
 /*
  * Hold a button to change the background color.
+ * A basic throttling mechanism is being used to compensate for unreliable button.
  *
  * Tested on: ESP8266 (Moddable One).
  *
@@ -25,7 +26,7 @@ const paintBackground = function paintBackground(color) {
 
 paintBackground(black);
 
-// NOTE: Using a simple throttling mechanism.
+// NOTE: Using timers to implement a basic throttling mechanism.
 const holdTimer = Timer.set((id) => {
   paintBackground(red);
   Timer.schedule(id);

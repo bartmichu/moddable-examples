@@ -35,5 +35,6 @@ System.setInterval(() => {
     step = -step;
   }
 
+  // NOTE: Clamping the value to fit the PWM resolution.
   brightness = Math.min(Math.max(brightness + step, minBrightness), maxBrightness);
 }, 10);

@@ -1,5 +1,6 @@
 /*
- * Press the button to toggle a relay module and an LED.
+ * Press the button to toggle a relay module and an LED, which acts as a status indicator.
+ * A basic throttling mechanism is being used to compensate for unreliable button.
  *
  * Tested on: RP2040 (Raspberry Pi Pico W).
  *
@@ -48,7 +49,7 @@ const button = new Digital({
   mode: Digital.Input,
   edge: Digital.Rising | Digital.Falling,
 
-  // NOTE: Using a simple throttling mechanism.
+  // NOTE: Using timers to implement a basic throttling mechanism.
   onReadable() {
     if (this.read() === 0) {
       this.timeout ??= System.setTimeout(() => {

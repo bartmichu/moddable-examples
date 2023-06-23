@@ -1,6 +1,8 @@
 /*
  * Trace the messages received from a subscribed channel.
- * A debugger is required. Use the -d argument to build a debug instrumented version.
+ *
+ * For the purpose of this example a debugger is necessary. Use the -d argument to build a debug
+ * instrumented version.
  *
  * Tested on: ESP8266 (NodeMCU, Moddable One), RP2040 (Raspberry Pi Pico W).
  *
