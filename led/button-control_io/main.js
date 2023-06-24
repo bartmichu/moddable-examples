@@ -33,7 +33,7 @@ const button = new Digital({
   edge: Digital.Rising | Digital.Falling,
 
   onReadable() {
-    // NOTE: Using the bitwise XOR (exclusive OR) operation to "reverse" the button reading.
+    // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the button reading.
     led.write(1 ^ this.read());
   },
 });

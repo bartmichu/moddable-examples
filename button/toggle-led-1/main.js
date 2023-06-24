@@ -37,6 +37,7 @@ let ledState = button.read();
 button.onChanged = function onChanged() {
   if (this.read() === 0) {
     led.write(ledState);
+    // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
     ledState ^= 1;
   }
 };

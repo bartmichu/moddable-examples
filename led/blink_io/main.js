@@ -25,5 +25,6 @@ let ledState = 1;
 
 System.setInterval(() => {
   led.write(ledState);
+  // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
   ledState ^= 1;
 }, 200);

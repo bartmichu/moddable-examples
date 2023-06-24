@@ -36,6 +36,6 @@ const photoresistor = new Analog({
 const maxPhotoresistorValue = (1 << photoresistor.resolution) - 1;
 
 System.setInterval(() => {
-  // NOTE: Using the bitwise XOR (exclusive OR) operation to "reverse" the photoresistor reading.
+  // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
   led.write(1 ^ Math.round(photoresistor.read() / maxPhotoresistorValue));
 }, 100);

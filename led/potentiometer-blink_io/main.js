@@ -40,6 +40,7 @@ let interval;
 
 Timer.repeat((timerId) => {
   led.write(ledState);
+  // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
   ledState ^= 1;
 
   interval = Math.round(1000 * (potentiometer.read() / maxPotentiometerValue));

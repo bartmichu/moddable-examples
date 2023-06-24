@@ -31,6 +31,7 @@ led.write(ledState);
 
 // NOTE: Using timers to implement a basic throttling mechanism.
 const holdTimer = Timer.set((id) => {
+  // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
   ledState ^= 1;
   led.write(ledState);
   Timer.schedule(id);

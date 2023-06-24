@@ -36,6 +36,7 @@ const button = new Digital({
     if (this.read() === 0) {
       // eslint-disable-next-line no-use-before-define
       led.write(ledState);
+      // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
       // eslint-disable-next-line no-use-before-define
       ledState ^= 1;
     }

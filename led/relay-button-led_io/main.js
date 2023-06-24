@@ -53,7 +53,7 @@ const button = new Digital({
   onReadable() {
     if (this.read() === 0) {
       this.timeout ??= System.setTimeout(() => {
-        // NOTE: Using the bitwise XOR (exclusive OR) operation to "reverse" the button reading.
+        // NOTE: Using the bitwise XOR (exclusive OR) operation to flip the value.
         sharedState ^= 1;
         toggleRelay(sharedState);
         delete this.timeout;
