@@ -3,15 +3,25 @@
   "tasks": [
     {
       "label": "Moddable SDK: Upload on ESP8266 (slow)",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "export UPLOAD_SPEED=115200 DEBUGGER_SPEED=115200 && mcconfig -m -p esp",
       "options": {
         "cwd": "${workspaceFolder}/${relativeFileDirname}"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
     },
     {
       "label": "Moddable SDK: Upload and debug on ESP8266 (slow)",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "export UPLOAD_SPEED=115200 DEBUGGER_SPEED=115200 && mcconfig -d -m -p esp",
       "options": {
@@ -21,6 +31,11 @@
     },
     {
       "label": "Moddable SDK: Upload on ESP8266",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -m -p esp",
       "options": {
@@ -30,6 +45,11 @@
     },
     {
       "label": "Moddable SDK: Upload and debug on ESP8266",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -d -m -p esp",
       "options": {
@@ -39,6 +59,11 @@
     },
     {
       "label": "Moddable SDK: Upload on Moddable One",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -m -p esp/moddable_one",
       "options": {
@@ -48,14 +73,25 @@
     },
     {
       "label": "Moddable SDK: Upload and debug on Moddable One",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -d -m -p esp/moddable_one",
       "options": {
         "cwd": "${workspaceFolder}/${relativeFileDirname}"
       },
       "problemMatcher": []
-    },{
+    },
+    {
       "label": "Moddable SDK: Upload on Raspberry Pi Pico W",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -m -p pico/pico_w",
       "options": {
@@ -65,6 +101,11 @@
     },
     {
       "label": "Moddable SDK: Upload and debug on Raspberry Pi Pico W",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
       "type": "shell",
       "command": "mcconfig -d -m -p pico/pico_w",
       "options": {
