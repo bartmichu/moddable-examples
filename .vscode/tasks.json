@@ -4,7 +4,7 @@
     {
       "label": "Moddable SDK: Upload on ESP8266 (slow)",
       "presentation": {
-        "reveal": "silent",
+        "reveal": "always",
         "revealProblems": "onProblem",
         "panel": "dedicated"
       },
@@ -32,7 +32,7 @@
     {
       "label": "Moddable SDK: Upload on ESP8266",
       "presentation": {
-        "reveal": "silent",
+        "reveal": "always",
         "revealProblems": "onProblem",
         "panel": "dedicated"
       },
@@ -60,7 +60,7 @@
     {
       "label": "Moddable SDK: Upload on Moddable One",
       "presentation": {
-        "reveal": "silent",
+        "reveal": "always",
         "revealProblems": "onProblem",
         "panel": "dedicated"
       },
@@ -88,7 +88,7 @@
     {
       "label": "Moddable SDK: Upload on Raspberry Pi Pico W",
       "presentation": {
-        "reveal": "silent",
+        "reveal": "always",
         "revealProblems": "onProblem",
         "panel": "dedicated"
       },
